@@ -1,0 +1,24 @@
+def calculate_bmi_category(weight, height):
+ bmi = weight / (height ** 2)
+ if bmi < 18:
+ return 0
+ elif 18 <= bmi < 25:
+ return 1
+ elif 25 <= bmi < 30:
+ return 2
+ elif 30 <= bmi < 40:
+ return 3
+ else: # bmi >= 40
+ return 4
+def main():
+ import sys
+ input = sys.stdin.read
+ data = input().splitlines()
+
+ weight = int(data[0].strip())
+ height = float(data[1].strip())
+
+ result = calculate_bmi_category(weight, height)
+ print(result)
+if __name__ == "__main__":
+ main()
