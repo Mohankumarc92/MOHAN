@@ -1,0 +1,31 @@
+from collections import deque
+def unique_marbles(N, A, B):
+ # Set to track unique number of marbles that can be left
+ unique_marbles_set = set()
+
+ # Queue for BFS
+ queue = deque([N])
+
+ # BFS to explore all possible remaining marble counts
+ while queue:
+ current_marbles = queue.popleft()
+
+ # Add current marbles to the set
+ if current_marbles not in unique_marbles_set:
+ unique_marbles_set.add(current_marbles)
+
+ # Perform operation of subtracting A if valid
+ if current_marbles - A > 0 and (current_marbles - A) not in unique_marbles_set:
+ queue.append(current_marbles - A)
+
+ # Perform operation of subtracting B if valid
+ if current_marbles - B > 0 and (current_marbles - B) not in unique_marbles_set:
+ queue.append(current_marbles - B)
+
+ # Return the size of the set as the total unique numbers
+ return len(unique_marbles_set)
+# Input handling
+N, A, B = map(int, input().split())
+# Function call to calculate the result
+result = unique_marbles(N, A, B)
+print(result)
