@@ -1,0 +1,6 @@
+def find_largest(a, b, c):
+ the largest number
+ return max(a, b, c)
+ integers as input
+a, b, c = map(int, input().split())
+print(f"The largest number is: {find_largest(a, b, c)}")
