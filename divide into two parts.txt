@@ -1,0 +1,9 @@
+def can_divide_into_even_parts(N):
+ if N < 4:
+ return "NO"
+ if N % 2 == 0:
+ return "YES"
+ else:
+ return "NO"
+N = int(input().strip())
+print(can_divide_into_even_parts(N))
