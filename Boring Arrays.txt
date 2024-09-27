@@ -1,0 +1,18 @@
+def max_score(N, A):
+ # Step 1: Sort the array
+ A.sort()
+
+ score = 0
+
+ left = 0
+ right = N - 1
+
+ while left < right:
+ score += abs(A[right] - A[left])
+ left += 1
+ right -= 1
+
+ return score
+N = int(input())
+A = list(map(int, input().split()))
+print(max_score(N, A))
